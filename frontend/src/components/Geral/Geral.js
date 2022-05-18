@@ -8,10 +8,10 @@ import Rodape from "../Rodape/Rodape.js";
 function Geral() {
   return (
     <div className="geral">
-      <Cabecalho/>
-      <MenuHorizontal/>
-      <AreaDados/>
-      <Rodape/>
+      <Cabecalho />
+      <MenuHorizontal />
+      <AreaDados />
+      <Rodape />
     </div>
   );
 }

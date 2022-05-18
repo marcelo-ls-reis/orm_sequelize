@@ -5,7 +5,7 @@ import Geral from "../Geral/Geral.js";
 function App() {
   return (
     <div className="App">
-      <Geral/>
+      <Geral />
     </div>
   );
 }
