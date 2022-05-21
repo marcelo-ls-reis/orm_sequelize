@@ -1,31 +1,29 @@
 const express = require('express')
 const routes = express.Router()
 
-const controllers = require('../controllers/indexControllers.js')
+
 const categoriasControllers = require('../controllers/categoriasControllers.js')
 const departamentosControllers = require('../controllers/departamentosControllers.js')
 const timesControllers = require('../controllers/timesControllers.js')
 
-// rota raiz
-routes.get('/', controllers.indexRaiz)
 
-// rotas de categorias
-routes.get('/categorias', categoriasControllers.index)
+// rota de categorias
 routes.post('/categorias', categoriasControllers.store)
 routes.put('/categorias/:codigo_id', categoriasControllers.update)
 routes.delete('/categorias/:codigo_id', categoriasControllers.delete)
 routes.get('/categorias/:codigo_id', categoriasControllers.indexId)
 
-// rotas de departamentos
+// rota de departamentos
 routes.get('/departamentos', departamentosControllers.index)
 routes.post('/departamentos', departamentosControllers.store)
 routes.put('/departamentos/:codigo_id', departamentosControllers.update)
+routes.get('/departamentos/:codigo_id', departamentosControllers.indexId)
 
-// rotas de times
+// rota de times
 routes.get('/times', timesControllers.index)
 routes.post('/times', timesControllers.store)
 routes.put('/times/:codigo_id', timesControllers.update)
-routes.delete('/times/:codigo_id', timesControllers.delete)
+routes.get('/times/:codigo_id', timesControllers.indexId)
 
 module.exports = routes
 

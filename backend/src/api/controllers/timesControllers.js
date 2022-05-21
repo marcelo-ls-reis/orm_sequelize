@@ -2,9 +2,9 @@ const Times = require('../models/timesModels.js');
 
 module.exports = {
     
-    async index(req, res){
+    async index(requisicao, resposta){
         const times = await Times.findAll();
-        return res.json(times);
+        return resposta.json(times);
     },
 
     async store(req, res) {
@@ -17,8 +17,7 @@ module.exports = {
         const { tim_descricao } = req.body;
         const { tim_apelido } = req.body;
         await Times.update({
-            tim_descricao,
-            tim_apelido
+            tim_descricao
         }, {
             where: {
                 id: codigo_id 
@@ -27,13 +26,11 @@ module.exports = {
         return res.json({message: "Registro atualizado com sucesso!"})
     },
 
-    async delete(req, res) {
+    async indexId(req, res) {
         const { codigo_id } = req.params;
-        await Times.destroy({
-            where: {
-                id: codigo_id
-            }
-        });
-        return res.json({message: "Registro deletado com sucesso!"})
-    }
+
+        const times = await Times.findByPk(codigo_id)
+
+        return res.json(times) 
+    },
 }

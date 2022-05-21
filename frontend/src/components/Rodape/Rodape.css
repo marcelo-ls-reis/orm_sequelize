@@ -3,7 +3,7 @@
   border: 0.3vh solid rgb(20, 20, 20);
 
   margin: 0.2% 0.2% 0.2% 0.2%;
-  background-color: rgb(233, 13, 13);
+  background-color: rgb(183, 197, 55);
 
 
   padding-top: 0.9%;
@@ -12,4 +12,5 @@
   color: black;
 
   text-align: center;
+  font-family: 'Courier New', Courier, monospace;
 }

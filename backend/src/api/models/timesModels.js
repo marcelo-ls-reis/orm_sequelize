@@ -11,3 +11,4 @@ class Times extends Model {
 }
 
 module.exports = Times;
+

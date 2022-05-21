@@ -15,15 +15,21 @@ module.exports = {
     async update(req, res) {
         const { codigo_id } = req.params;
         const { dep_descricao } = req.body;
-
         await Departamentos.update({
             dep_descricao
         }, {
-            where: {id: codigo_id}
-        })
+            where: {
+                id: codigo_id 
+            }
+        });
         return res.json({message: "Registro atualizado com sucesso!"})
-     }
+    },
 
+    async indexId(req, res) {
+        const { codigo_id } = req.params;
+
+        const departamentos = await Departamentos.findByPk(codigo_id)
+
+        return res.json(departamentos) 
+    },
 }
-
-
