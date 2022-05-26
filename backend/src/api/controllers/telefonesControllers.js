@@ -1,22 +1,28 @@
-const Departamentos = require('../models/departamentosModels.js');
+const Telefones = require('../models/telefonesModels.js');
 
 module.exports = {
     
     async index(requisicao, resposta){
-        const departamentos = await Departamentos.findAll();
-        return resposta.json(departamentos);
+        const telefones = await Telefones.findAll();
+        return resposta.json(telefones);
     },
 
     async store(req, res) {
-       const departamentos = await Departamentos.create(req.body);
+       const telefones = await Telefones.create(req.body);
        return res.json({message: "Registro criado com sucesso!"})
     },
 
     async update(req, res) {
         const { codigo_id } = req.params;
-        const { dep_descricao } = req.body;
-        await Departamentos.update({
-            dep_descricao
+        const { tel_proprietario } = req.body;
+        const { tel_ddd } = req.body;
+        const { tel_numero } = req.body;
+        const { tel_tipo } = req.body;
+        await Telefones.update({
+            tel_proprietario,
+            tel_ddd,
+            tel_numero,
+            tel_tipo
         }, {
             where: {
                 id: codigo_id 
@@ -27,7 +33,7 @@ module.exports = {
 
     async delete(req, res) {
         const { codigo_id } = req.params;
-        await Departamentos.destroy({
+        await Telefones.destroy({
             where: {
                 id: codigo_id
             }
@@ -35,15 +41,15 @@ module.exports = {
 
         return res.status(200).send({
             status: 1,
-            message: 'Departamento deletado!!!!'
+            message: 'Candidato deletado!!!!'
         })
     },
 
     async indexId(req, res) {
         const { codigo_id } = req.params;
 
-        const departamentos = await Departamentos.findByPk(codigo_id)
+        const telefones = await Telefones.findByPk(codigo_id)
 
-        return res.json(departamentos) 
+        return res.json(telefones) 
     },
 }

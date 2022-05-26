@@ -5,7 +5,7 @@ module.exports = {
     password: '252300',
     database: 'webiiorm',
     define: {
-        timestamps:true,
+        timestamps: true,
         underscored: true,
     },
 };

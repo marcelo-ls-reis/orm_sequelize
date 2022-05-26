@@ -2,14 +2,18 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return await queryInterface.createTable('departamentos', {
+    return await queryInterface.createTable('cursos', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      dep_descricao: {
+      cur_descricao: {
+        type: Sequelize.STRING(30),
+        allowNull: false,
+      },
+      cur_area: {
         type: Sequelize.STRING(30),
         allowNull: false,
       },
@@ -25,7 +29,7 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    return await queryInterface.dropTable('departamentos')
+    return await queryInterface.dropTable('cursos')
   }
 };
 

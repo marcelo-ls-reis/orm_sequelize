@@ -1,7 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import './Categorias.css';
-
+import api from "../../services/api.js"
+import Tabelas from "../Tabelas/CategoriasTabelas";
 
 function Categorias() {
   const [categorias , setCategorias] = useState([])
@@ -13,7 +14,12 @@ function Categorias() {
   ) 
   return (
     <div id="idCategorias" className="Categorias">
-      <legend> Registro de categorias cadastrado </legend>
+      <div id="corpo_rel" className="tableParams"> 
+      <Tabelas
+         dados = {categorias}
+         registros = {categorias.length}
+         /> 
+      </div>
     </div>
   );
 }

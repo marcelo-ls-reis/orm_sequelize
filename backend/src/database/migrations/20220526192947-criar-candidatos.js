@@ -2,18 +2,26 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return await queryInterface.createTable('times', {
+    return await queryInterface.createTable('candidatos', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      tim_descricao: {
+      can_nome: {
         type: Sequelize.STRING(30),
         allowNull: false,
       },
-      tim_apelido: {
+      can_apelido: {
+        type: Sequelize.STRING(30),
+        allowNull: false,
+      },
+      can_sexo: {
+        type: Sequelize.STRING(10),
+        allowNull: false,
+      },
+      can_partido: {
         type: Sequelize.STRING(30),
         allowNull: false,
       },
@@ -29,7 +37,7 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    return await queryInterface.dropTable('times')
+    return await queryInterface.dropTable('canes')
   }
 };
 
